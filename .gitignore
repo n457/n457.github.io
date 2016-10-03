@@ -1,0 +1,4 @@
+# Exclude OS cache files.
+**/.DS_Store
+**/._.DS_Store
+**/Thumbs.db

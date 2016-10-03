@@ -1,0 +1,181 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  color: #ff2600;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+
+  [data-hint]:before {
+    border-top-color: rgba(214, 67, 47, 0.9); }
+  [data-hint]:after {
+    background-color: rgba(214, 67, 47, 0.9);
+    border-radius: 99px; }
+
+
+  h1 {
+    font-size: 1.875em;
+    font-weight: 300;
+    color: #f1401b;
+    line-height: normal;
+    margin: 0 0 20px 0; }
+
+  p, li {
+    line-height: 1.5; }
+
+  a {
+    color: #fd5917; }
+    a:hover {
+      text-decoration: none; }
+    a:not([href]) {
+      cursor: default; }
+
+
+  .remove-list-style {
+    list-style: none;
+    padding: 0;
+    margin: 0; }
+
+  .align-right {
+    text-align: right; }
+
+
+
+  .card-section {
+    position: absolute;
+    top: 22px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 900px;
+    height: 482px; }
+
+    /* Flip system */
+    /* https://codepen.io/ChrisLang/pen/pvPpQb */
+    /* entire container, keeps perspective */
+    .card-container {
+      width: 100%;
+      height: 441px;
+      margin: 0 auto;
+      perspective: 1000px;
+      transform-style: preserve-3d; }
+      .card-container .card {
+        position: relative;
+        height: 100%;
+        transition: 0.5s;
+        transform-style: preserve-3d; }
+
+        .card-container .front,
+        .card-container .back {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          transition: 0.5s;
+          transform: rotateY(0deg);
+          transform-style: preserve-3d; }
+          .card-container .front {
+            /* z-index so front card stays above back */
+            z-index: 2;
+            transform: rotateY(0deg); }
+          .card-container .back {
+            /* back, initially hidden */
+            transform: rotateX(180deg); }
+          .card-container:hover .front {
+            transform: rotateX(-180deg); }
+          .card-container:hover .back {
+            transform: rotateX(0deg); }
+
+
+      .card-container .front img {
+        width: 100%; }
+      .card-container .front .main-author-name {
+        position: absolute;
+        top: 0;
+        left: 12px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 50px;
+        color: white;
+        line-height: normal; }
+      .card-container .front .slogan {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        color: white;
+        line-height: normal;
+        margin: 0; }
+        .card-container .front .toggling-dot {
+          opacity: 0;
+          transition: opacity 0.2s; }
+          .card-container .front .toggling-dot.active {
+            opacity: 1; }
+
+      .card-container .back {
+        background-color: white;
+        border: 2px solid #f1401b;
+        overflow-y: auto; }
+        .card-container .back .text-container {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          width: 80%;
+          height: 222px;
+          text-align: center; }
+          .card-container .back .app-list {
+            margin-top: 22px; }
+            .card-container .back .app-list li {
+              display: inline-block;
+              margin: 0 12px; }
+              .card-container .back .app-list img {
+                max-height: 30px; }
+
+
+    .social-icons {
+      margin-top: 16px; }
+      .social-icons li {
+        display: inline-block;
+        line-height: normal;
+        margin: 0 4px; }
+        .social-icons img {
+          height: 24px; }
+
+
+
+::selection {
+  color: white;
+  background-color: #ea4a10; }
+
+
+::-webkit-scrollbar {
+  /* width for vertical scrollbar */
+  width: 6px;
+  /* height for horizontal scrollbar */
+  height: 6px; }
+::-webkit-scrollbar-thumb {
+  background-color: #ff4400;
+  border-radius: 99px; }
+
+
+
+@media screen and (max-width: 900px) {
+  .card-section {
+    width: 480px;
+    height: 276px; }
+    .card-container {
+      height: 235px; }
+      .card-container .back {
+        opacity: 0; }
+        .card-container:hover .back {
+          opacity: 1; }
+        .card-container .back .text-container {
+          position: static;
+          height: auto;
+          margin: 30px auto; }
+}
