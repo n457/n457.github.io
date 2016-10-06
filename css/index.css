@@ -142,9 +142,13 @@ body {
       .social-icons li {
         display: inline-block;
         line-height: normal;
+        vertical-align: middle;
         margin: 0 4px; }
         .social-icons img {
-          height: 24px; }
+          height: 24px;
+          transition: height 0.2s; }
+          .social-icons li:hover img {
+            height: 32px; }
 
 
 
