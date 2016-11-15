@@ -2,9 +2,19 @@ document.addEventListener('DOMContentLoaded', function () {
   var $Input1 = document.getElementById('name-input-1');
   var $Input2 = document.getElementById('name-input-2');
   var $Input3 = document.getElementById('name-input-3');
+  var timerInputFocus;
   var timerInputCheck;
 
   forEach(document.getElementsByClassName('name-input'), ($Input) => {
+
+    $Input.addEventListener('focus', () => {
+      clearTimeout(timerInputFocus);
+      timerInputFocus = setTimeout(function () {
+        document.execCommand('selectAll');
+        clearTimeout(timerInputFocus);
+      }, 10);
+    });
+
     $Input.addEventListener('input', () => {
       clearTimeout(timerInputCheck);
       timerInputCheck = setTimeout(function () {
